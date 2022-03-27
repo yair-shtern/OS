@@ -1,0 +1,99 @@
+elinor123, yair.shtern
+Elinor Blumenfeld 311216717, Yair Shtern 318442241
+Ex: 1
+
+
+=============================
+=     Files description     =
+=============================
+
+Static library that measures the time it takes to run
+various operations, includes the following files:
+1. osm.cpp - an executable containing all the time measuring
+    functions.
+2. Makefile
+3. An image file of the graph containing the various
+    measurements.
+
+=============================
+=          Remarks          =
+=============================
+
+Explanation of the graph:
+The time measurement results of the different operations
+show an immense difference between the time it took for the
+SYSCALL_TRAP and the two other operations.
+SYSCALL_TRAP took two orders of magnitude more than the simple arithmetic
+Operation and at least one order of magnitude more than the empty
+Function call. The differences between SIM_ARITHMETIC and
+EMPTY_FUNC were more subtle but still significant with one
+Order of magnitude difference.
+
+Another thing that can be noticed is that when running on the VM the TRAP is faster than on the computer
+and the container but the EMPTY_FUNC and the SIM_ARITHMETIC are slower.
+
+=============================
+=          Answers          =
+=============================
+
+Assignment 1:
+============================================
+=        mkdir("Welcome", 0775) = 0        =
+============================================
+Successfully created a folder named "Welcome" (return value 0)
+
+
+============================================
+=       mkdir("Welcome/To", 0775) = 0      =
+============================================
+Successfully create a folder within "Welcome" named "To".
+0775 This is the file permission
+
+=================================================================================
+=   openat(AT_FDCWD, "Welcome/To/OS2021", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3   =
+=================================================================================
+System call that open file named OS2021*** for writing (O_WRONLY) in folder "Welcome/To"
+(in this case, since we just created the folder it will create a new one (O_CREAT))
+and cuts the file to be of length 0 (O_TRUNC).
+When there is a failure it returns -1 so here it is successful (returned 3).
+
+==============================================================
+=    fstat(3, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0    =
+==============================================================
+A system call that returns information about the file OS2021.
+returns 0 upon success so here it is successful.
+
+===================================================================
+=    write(3, "yair.shtern\nIf you haven't read "..., 80) = 80    =
+===================================================================
+Write to the file 80 characters (seems to be some of the course guidelines...)
+and returns 80 - which means success
+(returns -1 when failed).
+
+====================
+=   close(3) = 0   =
+====================
+closing the file successfully (return 0)
+
+=========================================
+=    unlink("Welcome/To/OS2021") = 0    =
+=========================================
+Successfully deletes the OS2021 file (returns 0)
+
+==================================
+=    rmdir("Welcome/To/") = 0    =
+==================================
+Successfully deletes the "To" directory (returns 0)
+
+===============================
+=    rmdir("Welcome/") = 0    =
+===============================
+Successfully deletes the "Welcome" directory (returns 0)
+
+=============================
+=     exit_group(0) = ?     =
+=   +++ exited with 0 +++   =
+=============================
+-exit from the system successfully
+
+
