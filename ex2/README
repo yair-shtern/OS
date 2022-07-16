@@ -1,0 +1,49 @@
+elinor123, yair.shtern
+Elinor Blumenfeld 311216717, Yair Shtern 318442241
+Ex: 2
+
+
+=============================
+=     Files description     =
+=============================
+Uthread.h - a single thread class
+uthreads.cpp
+README
+Makefile
+
+=============================
+=          Remarks          =
+=============================
+
+
+=============================
+=          Answers          =
+=============================
+Question 1:
+When we want to have control over the scheduling order of some processes,
+we can use user-level threads,
+in which the OS is unaware of the multiple processes inside the thread and
+thus the scheduler won't
+control their order.
+
+Question 2:
+The most obvious advantage is security such that if one each process has its own PCB.
+A disadvantage would be the costly overhead that each process context switching has.
+
+Question 3:
+When we type "kill pid" into the shell it triggers
+the OS to send a SIGTERM signal (which is the default signal)
+to the process that in turn, terminates the process.
+
+Question 4:
+Real time measures the time that passes including various interrupts or I/O
+delays that may happen. Virtual time on the other hand measures the actual time the
+CPU requires to complete a job, without the interrupts.
+
+Question 5:
+- sigsetjmp: saves the state of the current process in the exact moment that
+sigsetjmp was called, the state includes the whole environment of the running process.
+- siglongjmp: Jumps back into the saved environment of some process that was set
+by sigsetjmp.
+
+

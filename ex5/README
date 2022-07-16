@@ -1,0 +1,53 @@
+elinor123, yair.shtern
+Elinor Blumenfeld 311216717, Yair Shtern 318442241
+Ex: 5
+
+
+=============================
+=     Files description     =
+=============================
+
+README
+Makefile
+sockets.cpp
+container.cpp
+
+=============================
+=          Remarks          =
+=============================
+
+
+=============================
+=          Answers          =
+=============================
+
+q1:
+One use of Linux pid namespaces is creating isolation
+between processes within the container and processes outside of it.
+Each PID name space is unaware of processes outside its
+PID name space, with the exception of its descendant PID name spaces.
+
+q2:
+Linux mount namespaces allow us to isolate processes mount view within each
+name space instance, such that all the processes in the same name space
+have the same view and such that changes in the mount tree of one mount
+name space instance will not effect another name space instance.
+
+q3:
+Limiting the CPU usage time of processes under specific cgroup instance.
+
+q4:
+Clone command is used for starting a new process in a way similar to
+fork, only that by using clone we have more control over setting the
+process environment and limitations.
+
+q5:
+Chroot command changes the root directory of a specific process or group
+of processes.
+
+q6:
+The proc file system is pseudo-file system which provides an hierarchical
+file like interface into the kernel data structures. It allows the user
+to access kernel data about current processes and threads in a way
+that's comfortable and intuitive.
+
