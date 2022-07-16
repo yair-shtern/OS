@@ -1,1 +1,1 @@
-# Os-exercises
+# Operating Systems
